@@ -1,0 +1,22 @@
+{
+  "name": "02-static-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production npm run build:css",
+    "build:css": "postcss css/styles.css -o www/styles.css",
+    "serve": "http-server www -p 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "http-server": "^0.12.3",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^2.1.2"
+  }
+}
