@@ -19,7 +19,9 @@ h2 {
 }
 
 h3 {
-  @apply text-xl;
+  @apply mb-2
+    text-red
+    text-xl;
 }
 
 h4 {

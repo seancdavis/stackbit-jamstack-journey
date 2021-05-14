@@ -29358,6 +29358,8 @@ h2 {
 h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-red);
 }
 
 h4 {
@@ -29561,6 +29563,16 @@ input[type="submit"]:hover {
     grid-template-columns: 12.5rem auto;
   }
 }
+
+.layout--content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout--content > main {
+    flex: 1;
+  }
 
 @media (min-width: 640px){
   .sm\:container{
