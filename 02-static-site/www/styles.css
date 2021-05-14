@@ -29398,6 +29398,15 @@ input[type="submit"]:hover {
     cursor: pointer;
   }
 
+.icon {
+  height: auto;
+  width: 100%;
+}
+
+.icon path {
+  fill: currentColor;
+}
+
 .component--button {
   background-color: var(--color-yellow);
 }
