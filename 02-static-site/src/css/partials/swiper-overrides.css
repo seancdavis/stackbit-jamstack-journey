@@ -1,0 +1,59 @@
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}
+
+.swiper-next-button,
+.swiper-prev-button {
+  @apply absolute
+    z-10;
+
+  opacity: 0.75;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-next-button {
+  right: 0.25rem;
+}
+
+.swiper-prev-button {
+  left: 0.25rem;
+}
+
+@screen sm {
+  .swiper-container {
+    overflow: hidden;
+
+    &:after,
+    &:before {
+      content: " ";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 3rem;
+      z-index: 2;
+    }
+
+    &:before {
+      background: linear-gradient(
+        to left,
+        transparent,
+        var(--color-gray-light)
+      );
+      left: 0;
+    }
+
+    &:after {
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-gray-light)
+      );
+      right: 0;
+    }
+  }
+}
