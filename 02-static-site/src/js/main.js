@@ -1,7 +1,3 @@
-const Test = {
-  sayHi: () => {
-    console.log("hi");
-  },
-};
+import TextTileSlider from "./components/text-tile-slider";
 
-export { Test };
+export { TextTileSlider };
