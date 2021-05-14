@@ -9,5 +9,6 @@
 
 /* Custom */
 @import "partials/base";
+@import "partials/images";
 @import "partials/button";
 @import "partials/home";
