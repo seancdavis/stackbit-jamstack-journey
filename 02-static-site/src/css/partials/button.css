@@ -1,0 +1,26 @@
+.component--button {
+  @apply bg-yellow;
+
+  &:hover {
+    @apply bg-yellow-dark;
+  }
+
+  &.theme-white {
+    @apply bg-white
+      text-black;
+  }
+
+  &.theme-outline {
+    @apply bg-transparent
+      border
+      border-blue
+      duration-300
+      text-blue
+      transition-all;
+
+    &:hover {
+      @apply bg-blue
+        text-white;
+    }
+  }
+}

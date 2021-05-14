@@ -9,6 +9,7 @@ importers:
       postcss: ^8.2.15
       postcss-cli: ^8.3.1
       postcss-import: ^14.0.2
+      postcss-nested: ^5.0.5
       tailwindcss: ^2.1.2
     devDependencies:
       autoprefixer: 10.2.5_postcss@8.2.15
@@ -16,6 +17,7 @@ importers:
       postcss: 8.2.15
       postcss-cli: 8.3.1_postcss@8.2.15
       postcss-import: 14.0.2_postcss@8.2.15
+      postcss-nested: 5.0.5_postcss@8.2.15
       tailwindcss: 2.1.2_797cfc3ceddb49f111b184f6879a433f
 
 packages:

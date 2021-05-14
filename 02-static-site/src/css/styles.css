@@ -1,3 +1,13 @@
+/* Setup */
+@import "partials/variables";
+@import "partials/fonts";
+
+/* Tailwind */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* Custom */
+@import "partials/base";
+@import "partials/button";
+@import "partials/home";
