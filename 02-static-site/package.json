@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "NODE_ENV=production postcss src/css/styles.css -o www/styles.css",
+    "build:css": "NODE_ENV=production postcss src/css/styles.css -o www/css/styles.css",
     "build:js": "NODE_ENV=production webpack",
-    "build": "NODE_ENV=production npm-run-all build:css build:js",
-    "dev:css": "postcss src/css/styles.css -o www/styles.css --watch",
+    "build": "NODE_ENV=production npm-run-all --parallel build:css build:js",
+    "dev:css": "postcss src/css/styles.css -o www/css/styles.css --watch",
     "dev:js": "webpack",
-    "dev": "NODE_ENV=production npm-run-all dev:css dev:js",
+    "dev": "NODE_ENV=production npm-run-all --parallel dev:css dev:js serve",
     "serve": "http-server www -p 8000"
   },
   "keywords": [],
