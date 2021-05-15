@@ -2026,13 +2026,13 @@ input[type="submit"]:hover {
   }
 }
 
-.layout--content {
+.template--content--main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.layout--content > main {
+.template--content--main > main {
     flex: 1;
   }
 
