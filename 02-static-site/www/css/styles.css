@@ -1741,6 +1741,16 @@ video {
 
 /* Custom */
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > main {
+    flex: 1;
+  }
+
 h1, h2, h3, h4, h5, h6{
   font-family: Playfair Display, serif;
 }
@@ -2025,16 +2035,6 @@ input[type="submit"]:hover {
     grid-template-columns: 12.5rem auto;
   }
 }
-
-.template--content--main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.template--content--main > main {
-    flex: 1;
-  }
 
 @media (min-width: 640px){
   .sm\:inline-block{
