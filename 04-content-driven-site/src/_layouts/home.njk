@@ -1,0 +1,238 @@
+---
+layout: default
+---
+
+{# ---------------------------------------- | Jumbotron #}
+
+<div class="bg-transparent text-white relative template--home--jumbotron">
+  <div
+    class="template--home--jumbotron-bg is-mobile md:hidden"
+    style="background-image: url('{{ jumbotron.background.desktop }}')"
+  ></div>
+  <div
+    class="template--home--jumbotron-bg is-desktop"
+    style="background-image: url('{{ jumbotron.background.mobile }}')"
+  ></div>
+  <div class="container pt-8 pb-16">
+    <div class="flex items-center mb-4 md:mb-12">
+      <span class="inline-block w-32 mr-8">
+        {% include "svg/logo.svg" %}
+      </span>
+      <span class="max-w-xs text-sm hidden md:inline-block">{{ jumbotron.tagline }}</span>
+    </div>
+    <div class="text-center md:text-left mb-32 md:mb-0">
+      <h1 class="text-4xl sm:text-5xl leading-tight mb-6">
+        Everyone has a story.
+        <br/>
+        <span class="relative">
+          <span class="relative z-10">Unmute</span>
+          <span
+            class="absolute"
+            style="left: -2.5rem; bottom: -0.33rem; height: 4rem; z-index: 0"
+          >
+            {% include "svg/highlight-left.svg" %}
+          </span>
+          <span
+            class="absolute w-full left-0"
+            style="bottom: -0.33rem; z-index: 0"
+          >
+            {% include "svg/highlight-bottom.svg" %}
+          </span>
+        </span>
+        yours.
+      </h1>
+      <p class="max-w-md mb-8 mx-auto md:mx-0">
+        {{ jumbotron.body }}
+      </p>
+    </div>
+    <div
+      class="flex flex-wrap justify-center md:justify-start items-center font-bold"
+    >
+      <span class="inline-block mr-3">{{ next_event.date }}</span>
+      <span class="inline-block mx-3">{{ next_event.time }}</span>
+      <span class="inline-block mx-3">{{ next_event.location }}</span>
+      <span class="inline-block mx-3">{{ next_event.cost }}</span>
+      <span
+        class="block md:inline-block w-full md:w-auto mt-4 md:mt-0 ml-0 md:ml-3 text-center"
+      >
+        <a
+          href="#"
+          class="bg-yellow duration-300 inline-block no-underline px-8 py-3 relative rounded-full text-black transition-all component--button theme-default"
+        >
+          Register Now
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+
+{# ---------------------------------------- | Lineup #}
+
+<div class="py-16 pb-8 lg:pb-16 overflow-x-hidden">
+  <div class="container text-center">
+    <h2 class="text-4xl mb-4">{{ lineup.heading }}</h2>
+    <div class="max-w-lg mx-auto mb-4">{{ lineup.body }}</div>
+    <div class="relative">
+      <span class="absolute template--home--squiggles position-01">
+        {% include "svg/squiggles-01.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-02">
+        {% include "svg/squiggles-02.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-03">
+        {% include "svg/squiggles-03.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-04">
+        {% include "svg/squiggles-03.svg" %}
+      </span>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-{{ lineup.speakers.length }}">
+        {% for speaker in lineup.speakers %}
+          <div class="mx-4 mb-8 lg:mb-0 template-home--speaker">
+            <span class="block mb-2">
+              <img src="{{ speaker.image }}" alt=""/>
+            </span>
+            <strong class="block mb-2 text-lg">{{ speaker.name }}</strong>
+            <span class="block text-sm">
+              <em>{{ speaker.position }}</em>
+            </span>
+            <span class="block text-sm">{{ speaker.fun_fact }}</span>
+
+            <div class="flex items-center justify-center mt-4">
+              {% if speaker.social.twitter %}
+                <a
+                  href="#"
+                  class="mx-1 hover:opacity-75 transition-all duration-300"
+                >
+                  <span
+                    class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+                  >
+                    <svg
+                      width="256"
+                      height="256"
+                      viewBox="0 0 256 256"
+                      class="icon"
+                    >
+                      <path
+                        d="M240.651341,53.2988818 C236.943869,54.9432635 233.132101,56.3310912 229.237353,57.4577972 C233.848473,52.2429756 237.3641,46.1069957 239.510171,39.392437 C239.991305,37.887371 239.492661,36.2399441 238.255568,35.255599 C237.019998,34.2704925 235.303294,34.1524929 233.942873,34.9586967 C225.671481,39.8644355 216.747665,43.3899594 207.390676,45.4515268 C197.965171,36.2414667 185.163355,31 171.929128,31 C143.993671,31 121.266184,53.7267255 121.266184,81.6614211 C121.266184,83.8615429 121.4055,86.0494841 121.681086,88.2069738 C87.0158446,85.1633451 54.788247,68.1249622 32.6576098,40.9781996 C31.8689156,40.0106027 30.6539002,39.4891206 29.4099559,39.5888493 C28.1652503,39.6862941 27.0469185,40.3882015 26.4180948,41.4669463 C21.9295417,49.1688953 19.5566076,57.9777568 19.5566076,66.9403984 C19.5566076,79.1476487 23.9149804,90.7298817 31.6138842,99.7800714 C29.2729241,98.9692999 27.0012412,97.9560258 24.8330935,96.7524297 C23.6690844,96.1045738 22.2485213,96.1144705 21.0921251,96.7775522 C19.9349676,97.4406339 19.2094603,98.660217 19.1790088,99.993232 C19.1736798,100.217812 19.1736798,100.442392 19.1736798,100.670017 C19.1736798,118.891441 28.9805896,135.296432 43.9741534,144.237758 C42.6860544,144.1091 41.3987166,143.922585 40.1197531,143.678211 C38.8012026,143.426225 37.445349,143.888327 36.5561648,144.893988 C35.665458,145.898888 35.3708396,147.299658 35.7811738,148.578621 C41.330962,165.905532 55.6195733,178.650252 72.8931941,182.535865 C58.5665185,191.509164 42.1828431,196.209355 24.9838285,196.209355 C21.3951177,196.209355 17.7858521,195.998479 14.2534766,195.580532 C12.4987081,195.371939 10.8208297,196.408052 10.2232188,198.076794 C9.62560785,199.746299 10.2589993,201.607647 11.7518848,202.564586 C33.8467414,216.731391 59.3947996,224.219419 85.6325846,224.219419 C137.21288,224.219419 169.480065,199.896272 187.46549,179.491475 C209.893029,154.048474 222.755748,120.371385 222.755748,87.0962549 C222.755748,85.7061433 222.734432,84.3023286 222.6918,82.9030815 C231.540248,76.236484 239.158456,68.1683556 245.357623,58.8951086 C246.299336,57.4867261 246.197323,55.6253774 245.106398,54.3289042 C244.016995,53.0316697 242.201323,52.6122002 240.651341,53.2988818 Z"/>
+                    </svg>
+                  </span>
+                </a>
+              {% endif %}
+              {% if speaker.social.facebook %}
+                <a
+                  href="#"
+                  class="mx-1 hover:opacity-75 transition-all duration-300"
+                >
+                  <span
+                    class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+                  >
+                    <svg
+                      width="256"
+                      height="256"
+                      viewBox="0 0 256 256"
+                      class="icon"
+                    >
+                      <path
+                        d="M246,129 C246,63.8303516 193.169648,11 128,11 C62.8303516,11 10,63.8303516 10,129 C10,187.897211 53.1508945,236.71418 109.5625,245.566484 L109.5625,163.109375 L79.6015625,163.109375 L79.6015625,129 L109.5625,129 L109.5625,103.003125 C109.5625,73.429375 127.17907,57.09375 154.132852,57.09375 C167.04302,57.09375 180.546875,59.3984375 180.546875,59.3984375 L180.546875,88.4375 L165.667352,88.4375 C151.008848,88.4375 146.4375,97.5334102 146.4375,106.86509 L146.4375,129 L179.164062,129 L173.932422,163.109375 L146.4375,163.109375 L146.4375,245.566484 C202.849105,236.71418 246,187.897211 246,129"
+                      ></path>
+                    </svg>
+                  </span>
+                </a>
+              {% endif %}
+              {% if speaker.social.instagram %}
+                <a
+                  href="#"
+                  class="mx-1 hover:opacity-75 transition-all duration-300"
+                >
+                  <span
+                    class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+                  >
+                    <svg
+                      width="256"
+                      height="256"
+                      viewBox="0 0 256 256"
+                      class="icon"
+                    >
+                      <path
+                        d="M128,23.072 C162.176,23.072 166.229333,23.2 179.733333,23.8186667 C214.421333,25.3973333 230.624,41.856 232.202667,76.288 C232.821333,89.7813333 232.938667,93.8346667 232.938667,128.010667 C232.938667,162.197333 232.810667,166.24 232.202667,179.733333 C230.613333,214.133333 214.453333,230.624 179.733333,232.202667 C166.229333,232.821333 162.197333,232.949333 128,232.949333 C93.824,232.949333 89.7706667,232.821333 76.2773333,232.202667 C41.504,230.613333 25.3866667,214.08 23.808,179.722667 C23.1893333,166.229333 23.0613333,162.186667 23.0613333,128 C23.0613333,93.824 23.2,89.7813333 23.808,76.2773333 C25.3973333,41.856 41.5573333,25.3866667 76.2773333,23.808 C89.7813333,23.2 93.824,23.072 128,23.072 L128,23.072 Z M128,-4.85722573e-16 C93.2373333,4.69531821e-15 88.8853333,0.149333333 75.232,0.768 C28.7466667,2.90133333 2.912,28.6933333 0.778666667,75.2213333 C0.149333333,88.8853333 -4.85722573e-16,93.2373333 -4.85722573e-16,128 C-4.85722573e-16,162.762667 0.149333333,167.125333 0.768,180.778667 C2.90133333,227.264 28.6933333,253.098667 75.2213333,255.232 C88.8853333,255.850667 93.2373333,256 128,256 C162.762667,256 167.125333,255.850667 180.778667,255.232 C227.221333,253.098667 253.12,227.306667 255.221333,180.778667 C255.850667,167.125333 256,162.762667 256,128 C256,93.2373333 255.850667,88.8853333 255.232,75.232 C253.141333,28.7893333 227.317333,2.912 180.789333,0.778666667 C167.125333,0.149333333 162.762667,-4.85722573e-16 128,-4.85722573e-16 Z M128,62.272 C91.7013333,62.272 62.272,91.7013333 62.272,128 C62.272,164.298667 91.7013333,193.738667 128,193.738667 C164.298667,193.738667 193.728,164.309333 193.728,128 C193.728,91.7013333 164.298667,62.272 128,62.272 Z M128,170.666667 C104.437333,170.666667 85.3333333,151.573333 85.3333333,128 C85.3333333,104.437333 104.437333,85.3333333 128,85.3333333 C151.562667,85.3333333 170.666667,104.437333 170.666667,128 C170.666667,151.573333 151.562667,170.666667 128,170.666667 Z M196.330667,44.32 C187.84,44.32 180.96,51.2 180.96,59.68 C180.96,68.16 187.84,75.04 196.330667,75.04 C204.810667,75.04 211.68,68.16 211.68,59.68 C211.68,51.2 204.810667,44.32 196.330667,44.32 Z"
+                      ></path>
+                    </svg>
+                  </span>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ---------------------------------------- | About #}
+
+<div class="bg-red mb-0 py-16">
+  <div class="container max-w-4xl text-white text-xl md:text-2xl font-headings">
+    {{ mission | safe }}
+  </div>
+</div>
+
+{# ---------------------------------------- | FAQs #}
+
+<div class="py-16 bg-gray-light">
+  <div class="container text-center">
+    <h2 class="text-4xl mb-4">{{ faq.heading }}</h2>
+    <div class="max-w-lg mx-auto mb-8">
+      {{ faq.body | safe }}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for question in faq.questions %}
+          <div
+            class="rounded-lg bg-white overflow-hidden text-left py-6 px-8 component--text-tile swiper-slide"
+          >
+            <h3 class="leading-snug text-lg text-red font-bold mb-4">
+              {{ question.question }}
+            </h3>
+            <div class="">
+              {{ question.answer | safe }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <button class="swiper-prev-button">
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          <svg width="256" height="256" viewBox="0 0 256 256" class="icon">
+            <path
+              d="M93.3056662,128 L204.318437,222.534313 C212.307615,229.337597 213.268972,241.329258 206.465687,249.318437 C199.662403,257.307615 187.670742,258.268972 179.681563,251.465687 L51.9492021,142.693599 C51.4712991,142.300723 51.008962,141.881375 50.5642795,141.435721 C48.9929765,139.867843 47.7486912,138.080492 46.8387631,136.165219 C45.6055915,133.577644 44.9982994,130.784147 44.9996288,128 C44.9982994,125.215853 45.6055915,122.422356 46.8387631,119.834781 C47.7486934,117.919505 48.9929779,116.132155 50.5642795,114.564279 C51.008962,114.118625 51.4712991,113.699277 51.9492021,113.306401 L179.681563,4.53431261 C187.670742,-2.26897225 199.662403,-1.30761547 206.465687,6.68156308 C213.268972,14.6707416 212.307615,26.6624025 204.318437,33.4656874 L93.3056662,128 Z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+      <button class="swiper-next-button">
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          <svg width="256" height="256" viewBox="0 0 256 256" class="icon">
+            <path
+              d="M210.98033,113.262742 C211.457392,113.655303 211.91898,114.074173 212.363027,114.519188 C213.939542,116.092274 215.187936,117.885492 216.100887,119.807011 C217.338272,122.403308 217.947686,125.206321 217.946358,128 C217.947686,130.793679 217.338272,133.596692 216.100887,136.192989 C215.187936,138.114508 213.939542,139.907726 212.363027,141.480812 C211.91898,141.925827 211.457392,142.344697 210.98033,142.737258 L83.429902,251.445009 C75.4167173,258.274428 63.3844098,257.314796 56.5549909,249.301611 C49.7255721,241.288426 50.685204,229.256119 58.6983888,222.4267 L169.492384,128 L58.6983888,33.5732999 C50.685204,26.743881 49.7255721,14.7115735 56.5549909,6.69838877 C63.3844098,-1.31479597 75.4167173,-2.27442786 83.429902,4.55499095 L210.98033,113.262742 Z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    onInit(function () {
+      App
+        .TextTileSlider
+        .init();
+    });
+  </script>
+</div>
