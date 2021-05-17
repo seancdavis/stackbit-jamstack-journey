@@ -1,0 +1,18 @@
+/* Swiper */
+@import "../../node_modules/swiper/swiper-bundle.css";
+
+/* Setup */
+@import "partials/variables";
+@import "partials/fonts";
+
+/* Tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom */
+@import "partials/base";
+@import "partials/images";
+@import "partials/button";
+@import "partials/swiper-overrides";
+@import "partials/home";
