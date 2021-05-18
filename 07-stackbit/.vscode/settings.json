@@ -1,8 +1,0 @@
-{
-  "cSpell.words": ["Playfair", "Unmute"],
-  "files.associations": {
-    "*.css": "postcss"
-  },
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
-}
