@@ -1,8 +1,0 @@
-.icon {
-  @apply h-auto
-    w-full;
-}
-
-.icon path {
-  fill: currentColor;
-}
