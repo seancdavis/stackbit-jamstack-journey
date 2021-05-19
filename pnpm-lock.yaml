@@ -34,6 +34,18 @@ importers:
     devDependencies:
       '@11ty/eleventy': 0.12.1
 
+  04-content-driven-site:
+    specifiers:
+      '@11ty/eleventy': ^0.12.1
+    devDependencies:
+      '@11ty/eleventy': 0.12.1
+
+  07-stackbit:
+    specifiers:
+      '@11ty/eleventy': ^0.12.1
+    devDependencies:
+      '@11ty/eleventy': 0.12.1
+
 packages:
 
   /@11ty/dependency-tree/1.0.0:
@@ -1407,16 +1419,6 @@ packages:
       path-exists: 4.0.0
     dev: true
 
-  /follow-redirects/1.14.1:
-    resolution: {integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: true
-
   /follow-redirects/1.14.1_debug@4.3.1:
     resolution: {integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==}
     engines: {node: '>=4.0'}
@@ -1682,7 +1684,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.14.1
+      follow-redirects: 1.14.1_debug@4.3.1
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
