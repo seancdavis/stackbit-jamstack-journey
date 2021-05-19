@@ -1,2 +1,5 @@
 packages:
   - "02-static-site"
+  - "03-templated-site"
+  - "04-content-driven-site"
+  - "07-stackbit"
