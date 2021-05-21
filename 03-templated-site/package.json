@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "dev": "eleventy --serve --port 8000"
   },
   "keywords": [],
   "author": "",
