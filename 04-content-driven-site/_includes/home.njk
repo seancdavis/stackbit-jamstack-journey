@@ -1,0 +1,168 @@
+---
+layout: default
+---
+
+{# ---------------------------------------- | Jumbotron #}
+
+<div class="bg-transparent text-white relative template--home--jumbotron">
+  <div
+    class="template--home--jumbotron-bg is-mobile md:hidden"
+    style="background-image: url('{{ jumbotron.background.desktop }}')"
+  ></div>
+  <div
+    class="template--home--jumbotron-bg is-desktop"
+    style="background-image: url('{{ jumbotron.background.mobile }}')"
+  ></div>
+  <div class="container pt-8 pb-16">
+    <div class="flex items-center mb-4 md:mb-12">
+      <span class="inline-block w-32 mr-8">
+        {% include "svg/logo.svg" %}
+      </span>
+      <span class="max-w-xs text-sm hidden md:inline-block">{{ jumbotron.tagline }}</span>
+    </div>
+    <div class="text-center md:text-left mb-32 md:mb-0">
+      <h1 class="text-4xl sm:text-5xl leading-tight mb-6">
+        Everyone has a story.
+        <br/>
+        <span class="relative">
+          <span class="relative z-10">Unmute</span>
+          <span
+            class="absolute"
+            style="left: -2.5rem; bottom: -0.33rem; height: 4rem; z-index: 0"
+          >
+            {% include "svg/highlight-left.svg" %}
+          </span>
+          <span
+            class="absolute w-full left-0"
+            style="bottom: -0.33rem; z-index: 0"
+          >
+            {% include "svg/highlight-bottom.svg" %}
+          </span>
+        </span>
+        yours.
+      </h1>
+      <p class="max-w-md mb-8 mx-auto md:mx-0">
+        {{ jumbotron.body }}
+      </p>
+    </div>
+    <div
+      class="flex flex-wrap justify-center md:justify-start items-center font-bold"
+    >
+      <span class="inline-block mr-3">{{ next_event.date }}</span>
+      <span class="inline-block mx-3">{{ next_event.time }}</span>
+      <span class="inline-block mx-3">{{ next_event.location }}</span>
+      <span class="inline-block mx-3">{{ next_event.cost }}</span>
+      <span
+        class="block md:inline-block w-full md:w-auto mt-4 md:mt-0 ml-0 md:ml-3 text-center"
+      >
+        <a
+          href="#"
+          class="bg-yellow duration-300 inline-block no-underline px-8 py-3 relative rounded-full text-black transition-all component--button theme-default"
+        >
+          Register Now
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+
+{# ---------------------------------------- | Lineup #}
+
+<div class="py-16 pb-8 lg:pb-16 overflow-x-hidden">
+  <div class="container text-center">
+    <h2 class="text-4xl mb-4">{{ lineup.heading }}</h2>
+    <div class="max-w-lg mx-auto mb-4">{{ lineup.body }}</div>
+    <div class="relative">
+      <span class="absolute template--home--squiggles position-01">
+        {% include "svg/squiggles-01.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-02">
+        {% include "svg/squiggles-02.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-03">
+        {% include "svg/squiggles-03.svg" %}
+      </span>
+      <span class="absolute template--home--squiggles position-04">
+        {% include "svg/squiggles-03.svg" %}
+      </span>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-{{ lineup.speakers.length }}">
+        {% for speaker in lineup.speakers %}
+          {% include "speaker.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ---------------------------------------- | About #}
+
+<div class="bg-red mb-0 py-16">
+  <div class="container max-w-4xl text-white text-xl md:text-2xl font-headings">
+    {{ mission | safe }}
+  </div>
+</div>
+
+{# ---------------------------------------- | FAQs #}
+
+<div class="py-16 bg-gray-light">
+  <div class="container text-center">
+    <h2 class="text-4xl mb-4">{{ faq.heading }}</h2>
+    <div class="max-w-lg mx-auto mb-8">
+      {{ faq.body | safe }}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for question in faq.questions %}
+          <div
+            class="rounded-lg bg-white overflow-hidden text-left py-6 px-8 component--text-tile swiper-slide"
+          >
+            <h3 class="leading-snug text-lg text-red font-bold mb-4">
+              {{ question.question }}
+            </h3>
+            <div class="">
+              {{ question.answer | safe }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <button class="swiper-prev-button">
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          <svg width="256" height="256" viewBox="0 0 256 256" class="icon">
+            <path
+              d="M93.3056662,128 L204.318437,222.534313 C212.307615,229.337597 213.268972,241.329258 206.465687,249.318437 C199.662403,257.307615 187.670742,258.268972 179.681563,251.465687 L51.9492021,142.693599 C51.4712991,142.300723 51.008962,141.881375 50.5642795,141.435721 C48.9929765,139.867843 47.7486912,138.080492 46.8387631,136.165219 C45.6055915,133.577644 44.9982994,130.784147 44.9996288,128 C44.9982994,125.215853 45.6055915,122.422356 46.8387631,119.834781 C47.7486934,117.919505 48.9929779,116.132155 50.5642795,114.564279 C51.008962,114.118625 51.4712991,113.699277 51.9492021,113.306401 L179.681563,4.53431261 C187.670742,-2.26897225 199.662403,-1.30761547 206.465687,6.68156308 C213.268972,14.6707416 212.307615,26.6624025 204.318437,33.4656874 L93.3056662,128 Z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+      <button class="swiper-next-button">
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          <svg width="256" height="256" viewBox="0 0 256 256" class="icon">
+            <path
+              d="M210.98033,113.262742 C211.457392,113.655303 211.91898,114.074173 212.363027,114.519188 C213.939542,116.092274 215.187936,117.885492 216.100887,119.807011 C217.338272,122.403308 217.947686,125.206321 217.946358,128 C217.947686,130.793679 217.338272,133.596692 216.100887,136.192989 C215.187936,138.114508 213.939542,139.907726 212.363027,141.480812 C211.91898,141.925827 211.457392,142.344697 210.98033,142.737258 L83.429902,251.445009 C75.4167173,258.274428 63.3844098,257.314796 56.5549909,249.301611 C49.7255721,241.288426 50.685204,229.256119 58.6983888,222.4267 L169.492384,128 L58.6983888,33.5732999 C50.685204,26.743881 49.7255721,14.7115735 56.5549909,6.69838877 C63.3844098,-1.31479597 75.4167173,-2.27442786 83.429902,4.55499095 L210.98033,113.262742 Z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    onInit(function () {
+      App
+        .TextTileSlider
+        .init();
+    });
+  </script>
+</div>
+
+{# ---------------------------------------- | Footer #}
+
+{% include "footer.njk" %}

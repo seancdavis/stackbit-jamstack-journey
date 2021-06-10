@@ -1,0 +1,49 @@
+<div class="mx-4 mb-8 lg:mb-0 template-home--speaker">
+  <span class="block mb-2">
+    <img src="{{ speaker.image }}" alt=""/>
+  </span>
+  <strong class="block mb-2 text-lg">{{ speaker.name }}</strong>
+  <span class="block text-sm">
+    <em>{{ speaker.position }}</em>
+  </span>
+  <span class="block text-sm">{{ speaker.fun_fact }}</span>
+
+  <div class="flex items-center justify-center mt-4">
+    {% if speaker.social.twitter %}
+      <a
+        href="{{ speaker.social.twitter }}"
+        class="mx-1 hover:opacity-75 transition-all duration-300"
+      >
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          {% include "svg/twitter.svg" %}
+        </span>
+      </a>
+    {% endif %}
+    {% if speaker.social.facebook %}
+      <a
+        href="{{ speaker.social.facebook }}"
+        class="mx-1 hover:opacity-75 transition-all duration-300"
+      >
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          {% include "svg/facebook.svg" %}
+        </span>
+      </a>
+    {% endif %}
+    {% if speaker.social.instagram %}
+      <a
+        href="{{ speaker.social.instagram }}"
+        class="mx-1 hover:opacity-75 transition-all duration-300"
+      >
+        <span
+          class="inline-block bg-red text-white rounded-full p-2 overflow-hidden h-8 w-8 component--icon"
+        >
+          {% include "svg/instagram.svg" %}
+        </span>
+      </a>
+    {% endif %}
+  </div>
+</div>
